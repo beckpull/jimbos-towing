@@ -3,12 +3,12 @@ import { useForm } from '@formspree/react';
 import emailIcon from '@/assets/icons/email.svg';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css'
-import { useMutation } from '@apollo/client';
-import { ADD_CLIENT } from '@/utils/mutations';
+// import { useMutation } from '@apollo/client';
+// import { ADD_CLIENT } from '@/utils/mutations';
 
 function ContactForm() {
   const [state, handleSubmitFormspree] = useForm("hfjeswfh");
-  const [addClient] = useMutation(ADD_CLIENT);
+  // const [addClient] = useMutation(ADD_CLIENT);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -79,24 +79,24 @@ function ContactForm() {
       await handleSubmitFormspree(event);
       console.log('Formspree submission successful'); // Debugging log
         // Call the mutation to add the client
-        console.log('Calling addClient mutation'); // Debugging log
-        const response = await addClient({
-          variables: {
-            firstName,
-            lastName,
-            email,
-            phone,
-            inquiry,
-            message,
-          },
-        });
-        console.log('addClient mutation response:', response); // Debugging log  
+      //   console.log('Calling addClient mutation'); // Debugging log
+      //   const response = await addClient({
+      //     variables: {
+      //       firstName,
+      //       lastName,
+      //       email,
+      //       phone,
+      //       inquiry,
+      //       message,
+      //     },
+      //   });
+      //   console.log('addClient mutation response:', response); // Debugging log  
 
-        // Check if the response has errors
-      if (response.errors) {
-        console.error('addClient mutation errors:', response.errors);
-        return;
-      }
+      //   // Check if the response has errors
+      // if (response.errors) {
+      //   console.error('addClient mutation errors:', response.errors);
+      //   return;
+      // }
       
         // Reset the form and show the success modal
         setSubmitted(true);
